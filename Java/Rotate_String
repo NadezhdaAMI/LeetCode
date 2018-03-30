@@ -1,0 +1,36 @@
+/*
+We are given two strings, A and B.
+
+A shift on A consists of taking string A and moving the leftmost character to the rightmost position. For example, if A = 'abcde', then it will be 'bcdea' after one shift on A. Return True if and only if A can become B after some number of shifts on A.
+
+Example 1:
+Input: A = 'abcde', B = 'cdeab'
+Output: true
+
+Example 2:
+Input: A = 'abcde', B = 'abced'
+Output: false
+Note:
+
+A and B will have length at most 100.
+*/
+
+
+class Solution {
+    public boolean rotateString(String A, String B) {
+        boolean res = false;
+        if (A.length() == 0 && B.length() == 0){
+            res = true;
+        }
+        for (int i = 1; i < A.length(); i++){
+            String s1 = A.substring(0, i);
+            String s2 = A.substring(i, A.length());
+            System.out.println(s2 + s1);
+            if (B.equals(s2 + s1)){
+                res = true;
+                break;
+            }
+        }
+        return res;
+    }
+}
